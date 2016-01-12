@@ -26,9 +26,9 @@ namespace GameTemplate
         // button values
         public static Size buttonSize = new Size(180, 60);
         public static Color buttonBackColor = Color.White;
-        public static Color buttonActiveColor = Color.Green;
+        public static Color buttonActiveColor = Color.Red;
         public static FlatStyle buttonFlatStyle = FlatStyle.Flat;
-        public static Font buttonFont = new Font("Segoe UI", 10);
+        public static Font buttonFont = new Font("Bell Gothic Std", 11);
 
         public static Boolean firstTime = true;
 

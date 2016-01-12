@@ -12,8 +12,8 @@ namespace GameTemplate.Screens
 {
     public partial class MenuScreen : UserControl
     {
-        Color buttonBackColor = Color.White;
-        Color buttonActiveColor = Color.Green;
+       
+      Color buttonActiveColor = Color.Red;
 
         public MenuScreen()
         {
@@ -58,8 +58,17 @@ namespace GameTemplate.Screens
                 c.Location = new Point(c.Location.X, c.Location.Y + 75);             
             }
 
-            gameTitle.Font = new Font("Courier New", 30);
+            gameTitle.Font = new Font("Hobo Std", 72);
             gameTitle.Location = new Point(ScreenControl.controlWidth / 2 - gameTitle.Size.Width / 2, 50);
+
+            playButton.Location = new Point(ScreenControl.controlWidth / 2 - gameTitle.Size.Width / 5, 180);
+            optionsButton.Location = new Point(ScreenControl.controlWidth / 2 - gameTitle.Size.Width / 5, 420);
+            scoresButton.Location = new Point(ScreenControl.controlWidth / 2 - gameTitle.Size.Width / 5, 340);
+            exitButton.Location = new Point(ScreenControl.controlWidth / 2 - gameTitle.Size.Width / 5, 500);
+            instructionButton.Location = new Point(ScreenControl.controlWidth / 2 - gameTitle.Size.Width / 5, 260);
+
+
+
         }
 
 
