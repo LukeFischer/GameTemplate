@@ -28,7 +28,7 @@ namespace GameTemplate
         public static Color buttonBackColor = Color.White;
         public static Color buttonActiveColor = Color.Red;
         public static FlatStyle buttonFlatStyle = FlatStyle.Flat;
-        public static Font buttonFont = new Font("Bell Gothic Std", 11);
+        public static Font buttonFont = new Font("Bell Gotchic Std", 12, FontStyle.Bold);
 
         public static Boolean firstTime = true;
 
