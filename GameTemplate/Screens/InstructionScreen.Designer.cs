@@ -28,15 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InstructionScreen));
             this.exitButton = new System.Windows.Forms.Button();
             this.instructionsLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // exitButton
             // 
-            this.exitButton.BackColor = System.Drawing.Color.YellowGreen;
+            this.exitButton.BackColor = System.Drawing.Color.Red;
             this.exitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.exitButton.Location = new System.Drawing.Point(172, 287);
+            this.exitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.exitButton.Location = new System.Drawing.Point(61, 500);
             this.exitButton.Margin = new System.Windows.Forms.Padding(4);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(220, 72);
@@ -47,12 +49,12 @@
             // 
             // instructionsLabel
             // 
-            this.instructionsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.instructionsLabel.ForeColor = System.Drawing.Color.DarkRed;
-            this.instructionsLabel.Location = new System.Drawing.Point(68, 0);
-            this.instructionsLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.instructionsLabel.BackColor = System.Drawing.Color.Transparent;
+            this.instructionsLabel.Font = new System.Drawing.Font("Bell Gothic Std", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.instructionsLabel.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.instructionsLabel.Location = new System.Drawing.Point(97, 92);
             this.instructionsLabel.Name = "instructionsLabel";
-            this.instructionsLabel.Size = new System.Drawing.Size(658, 291);
+            this.instructionsLabel.Size = new System.Drawing.Size(406, 377);
             this.instructionsLabel.TabIndex = 12;
             // 
             // InstructionScreen
@@ -60,12 +62,15 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.instructionsLabel);
             this.Controls.Add(this.exitButton);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "InstructionScreen";
-            this.Size = new System.Drawing.Size(578, 375);
+            this.Size = new System.Drawing.Size(576, 585);
             this.ResumeLayout(false);
 
         }
