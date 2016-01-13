@@ -13,9 +13,12 @@ namespace GameTemplate.Screens
 {
     public partial class GameScreen : UserControl
     {
+        Graphics.g;
+
         public GameScreen()
         {
             InitializeComponent();
+            g = this.CreateGraphics();
         }
 
         #region required global values - DO NOT CHANGE
@@ -30,8 +33,8 @@ namespace GameTemplate.Screens
 
 
         //Graphics objects
-        SolidBrush heroBrush = new SolidBrush(Color.Black);
-        SolidBrush enemyBrush = new SolidBrush(Color.Red);
+        SolidBrush ball = new SolidBrush(Color.Black);
+        SolidBrush bat = new SolidBrush(Color.Red);
         //----------------------------------------
 
         // PreviewKeyDown required for UserControl instead of KeyDown as on a form
@@ -81,6 +84,7 @@ namespace GameTemplate.Screens
         /// <param name="e"></param>
         private void GameScreen_Paint(object sender, PaintEventArgs e)
         {
+            g.FillEllipse(ball, 25, 25, 100, 200);
         }
 
     }
