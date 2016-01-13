@@ -28,26 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
             this.exitButton = new System.Windows.Forms.Button();
             this.titleLabel = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(127, 95);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(0, 20);
-            this.label1.TabIndex = 0;
             // 
             // exitButton
             // 
             this.exitButton.BackColor = System.Drawing.Color.YellowGreen;
             this.exitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.exitButton.Location = new System.Drawing.Point(141, 303);
+            this.exitButton.Location = new System.Drawing.Point(97, 242);
+            this.exitButton.Margin = new System.Windows.Forms.Padding(2);
             this.exitButton.Name = "exitButton";
-            this.exitButton.Size = new System.Drawing.Size(180, 60);
+            this.exitButton.Size = new System.Drawing.Size(120, 39);
             this.exitButton.TabIndex = 10;
             this.exitButton.Text = "Exit";
             this.exitButton.UseVisualStyleBackColor = false;
@@ -56,32 +51,65 @@
             // titleLabel
             // 
             this.titleLabel.AutoSize = true;
-            this.titleLabel.Font = new System.Drawing.Font("Monotype Corsiva", 8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.titleLabel.Location = new System.Drawing.Point(292, 39);
+            this.titleLabel.Font = new System.Drawing.Font("Bell Gothic Std", 27.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.titleLabel.ForeColor = System.Drawing.Color.Navy;
+            this.titleLabel.Location = new System.Drawing.Point(37, 20);
+            this.titleLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.titleLabel.Name = "titleLabel";
-            this.titleLabel.Size = new System.Drawing.Size(74, 18);
+            this.titleLabel.Size = new System.Drawing.Size(236, 42);
             this.titleLabel.TabIndex = 11;
             this.titleLabel.Text = "High Scores";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(94, 93);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(16, 13);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "1.";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(94, 128);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(16, 13);
+            this.label2.TabIndex = 13;
+            this.label2.Text = "2.";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(94, 168);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(16, 13);
+            this.label3.TabIndex = 14;
+            this.label3.Text = "3.";
+            // 
             // ScoreScreen
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.SkyBlue;
+            this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.titleLabel);
             this.Controls.Add(this.exitButton);
-            this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ScoreScreen";
-            this.Size = new System.Drawing.Size(482, 452);
+            this.Size = new System.Drawing.Size(321, 294);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button exitButton;
         private System.Windows.Forms.Label titleLabel;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }

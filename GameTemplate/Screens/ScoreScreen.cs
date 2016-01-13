@@ -5,7 +5,7 @@ using System.Drawing;
 using System.Data;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace GameTemplate.Screens
@@ -20,15 +20,22 @@ namespace GameTemplate.Screens
             defaultOverride();
             
             showScores();
+            
         }
-
+        
         public void showScores()
         {
-            label1.Text = "";
-
+            titleLabel.Font = new Font("Bell Gothic Std", 56, FontStyle.Underline);
+            titleLabel.Location = new Point(ScreenControl.controlWidth / 2 - titleLabel.Size.Width / 2, 20);
+            label1.ForeColor = Color.Navy;
+            label2.ForeColor = Color.Navy;
+            label3.ForeColor = Color.Navy;
+                
             foreach (int i in ScreenControl.highScores)
             {
                 label1.Text += i + "\n";
+                
+                
             }         
         }
 
@@ -37,9 +44,9 @@ namespace GameTemplate.Screens
             ScreenControl.changeScreen(this, "MenuScreen");
         }
 
-        /// <summary>
-        /// Change any control default values here
-        /// </summary>
+        
+        // Change any control default values here
+        
         public void defaultOverride()
         {
 
