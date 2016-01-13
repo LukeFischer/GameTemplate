@@ -82,5 +82,6 @@ namespace GameTemplate.Screens
         private void GameScreen_Paint(object sender, PaintEventArgs e)
         {
         }
+
     }
 }
