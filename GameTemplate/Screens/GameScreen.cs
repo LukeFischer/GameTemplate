@@ -13,7 +13,7 @@ namespace GameTemplate.Screens
 {
     public partial class GameScreen : UserControl
     {
-        Graphics.g;
+        Graphics g;
 
         public GameScreen()
         {
