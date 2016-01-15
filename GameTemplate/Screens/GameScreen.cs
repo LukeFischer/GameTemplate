@@ -56,19 +56,24 @@ namespace GameTemplate.Screens
         /// <param name="e"></param>
         private void gameTimer_Tick(object sender, EventArgs e)
         {
-            ballY -= 5;
-
-            if (ballY < 20)
+            if (ballX == 490)
             {
                 ballY += 20;
             }
             
-            if (ballY > 500)
+            if (ballY > 490)
             {
-                gameTimer.Enabled = false;
+                ballY -= 40;
+                ballX -= 30;
             }
-                //refresh the screen, which causes the GameScreen_Paint method to run
-                Refresh();
+            if (ballX < 490)
+            {
+                ballY -= 40;
+                ballX -= 30;
+            }
+            //refresh the screen, which causes the GameScreen_Paint method to run
+            Refresh();
+            //gameTimer.Enabled = false;
         }
 
         /// <summary>
