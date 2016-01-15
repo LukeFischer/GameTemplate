@@ -6,7 +6,8 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
+using System.Threading;
+using System.Windows.Forms;  
 using GameTemplate.Dialogs;
 
 namespace GameTemplate.Screens
@@ -19,22 +20,23 @@ namespace GameTemplate.Screens
         {
             InitializeComponent();
             g = this.CreateGraphics();
+            ballX = 490;
+            ballY = 100;
         }
 
-        #region required global values - DO NOT CHANGE
+
+            #region required global values - DO NOT CHANGE
 
 
-        //player1 button control keys - DO NOT CHANGE
-        Boolean spaceDown;
+            //player1 button control keys - DO NOT CHANGE
+            Boolean spaceDown;
 
         #endregion
 
         //TODO - Place game global variables here
+        int ballX, ballY;
 
-
-        //Graphics objects
-        SolidBrush ball = new SolidBrush(Color.Black);
-        SolidBrush bat = new SolidBrush(Color.Red);
+        SolidBrush ball = new SolidBrush(Color.White);
         //----------------------------------------
 
         // PreviewKeyDown required for UserControl instead of KeyDown as on a form
@@ -54,8 +56,19 @@ namespace GameTemplate.Screens
         /// <param name="e"></param>
         private void gameTimer_Tick(object sender, EventArgs e)
         {
-            //refresh the screen, which causes the GameScreen_Paint method to run
-            Refresh();
+            ballY -= 5;
+
+            if (ballY < 20)
+            {
+                ballY += 20;
+            }
+            
+            if (ballY > 500)
+            {
+                gameTimer.Enabled = false;
+            }
+                //refresh the screen, which causes the GameScreen_Paint method to run
+                Refresh();
         }
 
         /// <summary>
@@ -84,7 +97,7 @@ namespace GameTemplate.Screens
         /// <param name="e"></param>
         private void GameScreen_Paint(object sender, PaintEventArgs e)
         {
-            g.FillEllipse(ball, 25, 25, 100, 200);
+            e.Graphics.FillEllipse(ball, ballX, ballY, 15, 15);
         }
 
     }
