@@ -38,8 +38,9 @@ namespace GameTemplate.Screens
             label3.Location = new Point(ScreenControl.controlWidth / 2 - titleLabel.Size.Width / 4, 410);
             label3.ForeColor = Color.Navy;
             pictureBox1.Location = new Point(ScreenControl.controlWidth / 2 - titleLabel.Size.Width / 2, 150);
-
-
+            pictureBox2.Location = new Point(ScreenControl.controlWidth / 2 - titleLabel.Size.Width / 2, 280);
+            pictureBox3.Location = new Point(ScreenControl.controlWidth / 2 - titleLabel.Size.Width / 2, 410);
+            
             foreach (int i in ScreenControl.highScores)
             {
                 label1.Text += i + "\n";
