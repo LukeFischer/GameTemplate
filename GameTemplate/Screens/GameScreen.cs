@@ -22,6 +22,7 @@ namespace GameTemplate.Screens
             g = this.CreateGraphics();
             ballX = 490;
             ballY = 100;
+            label1.Visible = false;
         }
 
 
@@ -35,8 +36,10 @@ namespace GameTemplate.Screens
 
         //TODO - Place game global variables here
         int ballX, ballY;
+        string ballDirection = "down";
 
         SolidBrush ball = new SolidBrush(Color.White);
+        SolidBrush bat = new SolidBrush(Color.SaddleBrown);
         //----------------------------------------
 
         // PreviewKeyDown required for UserControl instead of KeyDown as on a form
@@ -46,6 +49,38 @@ namespace GameTemplate.Screens
             {
                 pauseGame();
             }
+            if (e.KeyCode == Keys.Space)
+            {
+                //gameTimer.Enabled = false;
+                if (ballY > 470 && ballY < 480)
+                {
+                    ballDirection = "leftcenter";
+                }
+                if (ballY > 450 && ballY < 469)
+                {
+                    ballDirection = "rightcenter";
+                }
+                if (ballY > 481 && ballY < 510)
+                {
+                    ballDirection = "leftbomb";
+                }
+                if (ballY > 420 && ballY < 449)
+                {
+                    ballDirection = "rightbomb";
+                }
+                if (ballY > 511 && ballY < 540)
+                {
+                    ballDirection = "foulleft";
+                }
+                if (ballY > 400 && ballY < 419)
+                {
+                    ballDirection = "foulright";
+                }
+                if (ballY == 500)
+                {
+                    gameTimer.Enabled = false;
+                }
+            }
 
         }
 
@@ -54,22 +89,54 @@ namespace GameTemplate.Screens
         /// </summary>
         /// <param name="sender"></param>    
         /// <param name="e"></param>
+ 
         private void gameTimer_Tick(object sender, EventArgs e)
         {
-            if (ballX == 490)
+            //label1.Visible = true;
+            //label1.Text = "3";
+            //Thread.Sleep(100);
+            //Refresh();
+            //label1.Text = "2";
+            //Thread.Sleep(100);
+            //Refresh();
+            //label1.Text = "1";
+            //Thread.Sleep(100);
+            //Refresh();
+            if (ballDirection == "down")
             {
+
                 ballY += 20;
+
             }
-            
-            if (ballY > 490)
+            else if (ballDirection == "leftcenter")
+            {
+                ballY -= 50;
+                ballX -= 10;
+            }
+            else if (ballDirection == "rightcenter")
+            {
+                ballY -= 50;
+                ballX += 10;
+            }
+            else if (ballDirection == "leftbomb")
+            {
+                ballY -= 40; 
+                ballX -= 40;
+            }
+            else if (ballDirection == "rightbomb")
             {
                 ballY -= 40;
-                ballX -= 30;
+                ballX += 40;
             }
-            if (ballX < 490)
+            else if (ballDirection == "foulright")
             {
-                ballY -= 40;
-                ballX -= 30;
+                ballY -= 30;
+                ballX += 60;
+            }
+            else if (ballDirection == "foulleft")
+            {
+                ballY -= 30;
+                ballX -= 80;
             }
             //refresh the screen, which causes the GameScreen_Paint method to run
             Refresh();
@@ -95,6 +162,7 @@ namespace GameTemplate.Screens
             }
         }
 
+
         /// <summary>
         /// All drawing, (and only drawing), to be done here
         /// </summary>
@@ -103,6 +171,7 @@ namespace GameTemplate.Screens
         private void GameScreen_Paint(object sender, PaintEventArgs e)
         {
             e.Graphics.FillEllipse(ball, ballX, ballY, 15, 15);
+           // e.Graphics.FillEllipse(bat, 500, 500, 25, 50);
         }
 
     }
