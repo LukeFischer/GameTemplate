@@ -15,8 +15,8 @@ namespace GameTemplate.Screens
         public InstructionScreen()
         {
             InitializeComponent();
-            instructionsLabel.Text = "- Press the green button once the ball reaches the plate to swing at your bat \n\n - You have 5 outs \n\n - Earn a multiplier by hitting consecutive home runs \n\n - Multiplier resets when you fail to hit a homerun \n\n Have Fun!";
-            instructionsLabel.Font = new Font("Bell Gothic", 18, FontStyle.Bold);
+            instructionsLabel.Text = "Press the green button when the ball reaches the plate to swing\n\nYou are out when a home run isn't hit, you have 5 outs\n\nEarn a 'streak bonus' by hitting consecutive home runs, streak bonus ends when you fail to keep the homerun streak\n\nHave Fun!";
+            instructionsLabel.Font = new Font("Bell Gothic", 20, FontStyle.Bold);            exitButton.Location = new Point(ScreenControl.controlWidth / 2 - instructionsLabel.Size.Width / 5, 500);
         }
 
         private void exitButton_Click(object sender, EventArgs e)

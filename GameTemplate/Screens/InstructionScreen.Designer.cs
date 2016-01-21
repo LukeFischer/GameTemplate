@@ -38,7 +38,7 @@
             this.exitButton.BackColor = System.Drawing.Color.Red;
             this.exitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.exitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.exitButton.Location = new System.Drawing.Point(61, 500);
+            this.exitButton.Location = new System.Drawing.Point(353, 509);
             this.exitButton.Margin = new System.Windows.Forms.Padding(4);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(220, 72);
@@ -52,9 +52,9 @@
             this.instructionsLabel.BackColor = System.Drawing.Color.Transparent;
             this.instructionsLabel.Font = new System.Drawing.Font("Bell Gothic Std", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.instructionsLabel.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.instructionsLabel.Location = new System.Drawing.Point(97, 92);
+            this.instructionsLabel.Location = new System.Drawing.Point(73, 106);
             this.instructionsLabel.Name = "instructionsLabel";
-            this.instructionsLabel.Size = new System.Drawing.Size(406, 377);
+            this.instructionsLabel.Size = new System.Drawing.Size(468, 376);
             this.instructionsLabel.TabIndex = 12;
             // 
             // InstructionScreen
@@ -70,7 +70,7 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "InstructionScreen";
-            this.Size = new System.Drawing.Size(576, 585);
+            this.Size = new System.Drawing.Size(576, 481);
             this.ResumeLayout(false);
 
         }
