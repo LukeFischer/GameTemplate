@@ -15,14 +15,18 @@ namespace GameTemplate.Screens
     public partial class GameScreen : UserControl
     {
         Graphics g;
+        public static Random randNum = new Random();
+        int rand;
+        int score;
 
         public GameScreen()
-        {
+        {            
             InitializeComponent();
             g = this.CreateGraphics();
             ballX = 490;
-            ballY = 100;
-            label1.Visible = false;
+            ballY = 80;
+            score = 0;
+
         }
 
 
@@ -45,6 +49,8 @@ namespace GameTemplate.Screens
         // PreviewKeyDown required for UserControl instead of KeyDown as on a form
         private void GameScreen_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
+            rand = randNum.Next(1, 10);
+
             if (e.KeyCode == Keys.Escape)
             {
                 pauseGame();
@@ -52,34 +58,225 @@ namespace GameTemplate.Screens
             if (e.KeyCode == Keys.Space)
             {
                 //gameTimer.Enabled = false;
-                if (ballY > 470 && ballY < 480)
-                {
-                    ballDirection = "leftcenter";
-                }
-                if (ballY > 450 && ballY < 469)
-                {
-                    ballDirection = "rightcenter";
-                }
-                if (ballY > 481 && ballY < 510)
-                {
-                    ballDirection = "leftbomb";
-                }
-                if (ballY > 420 && ballY < 449)
-                {
-                    ballDirection = "rightbomb";
-                }
-                if (ballY > 511 && ballY < 540)
+                if (ballY > 524 && ballY < 550)
                 {
                     ballDirection = "foulleft";
+                    label1.Text = "Foul Ball";
                 }
-                if (ballY > 400 && ballY < 419)
+
+
+                if (ballY > 504 && ballY < 525)
+                {
+                    ballDirection = "leftbomb";
+
+                    if (rand == 1)
+                    {
+                        label1.Text = "Homerun!";
+                    }
+                    if (rand == 2)
+                    {
+                        label1.Text = "Dinger!";
+                    }
+                    if (rand == 3)
+                    {
+                        label1.Text = "Moonshot!";
+                    }
+                    if (rand == 4)
+                    {
+                        label1.Text = "Long Bomb!";
+                    }
+                    if (rand == 5)
+                    {
+                        label1.Text = "Upper-decker!";
+                    }
+                    if (rand == 6)
+                    {
+                        label1.Text = "No-Doubter!";
+                    }
+                    if (rand == 7)
+                    {
+                        label1.Text = "See Ya!";
+                    }
+                    if (rand == 8)
+                    {
+                        label1.Text = "Missile!";
+                    }
+                    if (rand == 9)
+                    {
+                        label1.Text = "What a Poke!";
+                    }
+                }
+
+                if (ballY > 484 && ballY < 505)
+                {
+                    ballDirection = "leftcenter";
+                    if (rand == 1)
+                    {
+                        label1.Text = "Homerun!";
+                    }
+                    if (rand == 2)
+                    {
+                        label1.Text = "Dinger!";
+                    }
+                    if (rand == 3)
+                    {
+                        label1.Text = "Moonshot!";
+                    }
+                    if (rand == 4)
+                    {
+                        label1.Text = "Long Bomb!";
+                    }
+                    if (rand == 5)
+                    {
+                        label1.Text = "Upper-decker!";
+                    }
+                    if (rand == 6)
+                    {
+                        label1.Text = "No-Doubter!";
+                    }
+                    if (rand == 7)
+                    {
+                        label1.Text = "See Ya!";
+                    }
+                    if (rand == 8)
+                    {
+                        label1.Text = "Missile!";
+                    }
+                    if (rand == 9)
+                    {
+                        label1.Text = "What a Poke!";
+                    }
+                }
+
+                if (ballY > 474 && ballY < 485)
+                {
+                    ballDirection = "deadcenter";
+                    if (rand == 1)
+                    {
+                        label1.Text = "Homerun!";
+                    }
+                    if (rand == 2)
+                    {
+                        label1.Text = "Dinger!";
+                    }
+                    if (rand == 3)
+                    {
+                        label1.Text = "Moonshot!";
+                    }
+                    if (rand == 4)
+                    {
+                        label1.Text = "Long Bomb!";
+                    }
+                    if (rand == 5)
+                    {
+                        label1.Text = "Upper-decker!";
+                    }
+                    if (rand == 6)
+                    {
+                        label1.Text = "No-Doubter!";
+                    }
+                    if (rand == 7)
+                    {
+                        label1.Text = "See ya!";
+                    }
+                    if (rand == 8)
+                    {
+                        label1.Text = "Missile!";
+                    }
+                    if (rand == 9)
+                    {
+                        label1.Text = "What a Poke!";
+                    }
+                }
+
+                if (ballY > 459 && ballY < 475)
+                {
+                    ballDirection = "rightcenter";
+                    if (rand == 1)
+                    {
+                        label1.Text = "Homerun!";
+                    }
+                    if (rand == 2)
+                    {
+                        label1.Text = "Dinger!";
+                    }
+                    if (rand == 3)
+                    {
+                        label1.Text = "Moonshot!";
+                    }
+                    if (rand == 4)
+                    {
+                        label1.Text = "Long Bomb!";
+                    }
+                    if (rand == 5)
+                    {
+                        label1.Text = "Upper-decker!";
+                    }
+                    if (rand == 6)
+                    {
+                        label1.Text = "No-Doubter!";
+                    }
+                    if (rand == 7)
+                    {
+                        label1.Text = "See Ya!";
+                    }
+                    if (rand == 8)
+                    {
+                        label1.Text = "Missile!";
+                    }
+                    if (rand == 9)
+                    {
+                        label1.Text = "What a Poke!";
+                    }
+                }
+
+                if (ballY > 439 && ballY < 460)
+                {
+                    ballDirection = "rightbomb";
+
+                    if (rand == 1)
+                    {
+                        label1.Text = "Homerun!";
+                    }
+                    if (rand == 2)
+                    {
+                        label1.Text = "Dinger!";
+                    }
+                    if (rand == 3)
+                    {
+                        label1.Text = "Moonshot!";
+                    }
+                    if (rand == 4)
+                    {
+                        label1.Text = "Long Bomb!";
+                    }
+                    if (rand == 5)
+                    {
+                        label1.Text = "Upper-decker!";
+                    }
+                    if (rand == 6)
+                    {
+                        label1.Text = "No-Doubter!";
+                    }
+                    if (rand == 7)
+                    {
+                        label1.Text = "See Ya!";
+                    }
+                    if (rand == 8)
+                    {
+                        label1.Text = "Missile!";
+                    }
+                    if (rand == 9)
+                    {
+                        label1.Text = "What a Poke!";
+                    }
+                }
+                if (ballY > 410 && ballY < 440)
                 {
                     ballDirection = "foulright";
+                    label1.Text = "Foul Ball";
                 }
-                if (ballY == 500)
-                {
-                    gameTimer.Enabled = false;
-                }
+
             }
 
         }
@@ -104,39 +301,60 @@ namespace GameTemplate.Screens
             //Refresh();
             if (ballDirection == "down")
             {
-
-                ballY += 20;
-
+                ballY += 50;
             }
             else if (ballDirection == "leftcenter")
             {
                 ballY -= 50;
-                ballX -= 10;
+                ballX -= 20;
             }
             else if (ballDirection == "rightcenter")
             {
                 ballY -= 50;
-                ballX += 10;
+                ballX += 20;
             }
             else if (ballDirection == "leftbomb")
             {
-                ballY -= 40; 
+                ballY -= 50; 
                 ballX -= 40;
             }
             else if (ballDirection == "rightbomb")
             {
-                ballY -= 40;
+                ballY -= 50;
                 ballX += 40;
             }
             else if (ballDirection == "foulright")
             {
                 ballY -= 30;
-                ballX += 60;
+                ballX += 80;
             }
             else if (ballDirection == "foulleft")
             {
                 ballY -= 30;
                 ballX -= 80;
+            }
+            else if (ballDirection == "deadcenter")
+            {
+                ballY -= 80;
+            }
+
+            //check to see if ball has gone off top of screen or into catchers mit. If it has set ball back to start 
+            //position and direction to down
+            if (ballY < 0)
+            {
+                ballDirection = "down";
+                ballX = 490;
+                ballY = 80;
+
+            }
+            if (ballY > 550)
+            {
+                ballDirection = "down";
+                ballX = 490;
+                ballY = 80;
+                label1.Text = "Out";
+                //label2.Text = score;
+
             }
             //refresh the screen, which causes the GameScreen_Paint method to run
             Refresh();
