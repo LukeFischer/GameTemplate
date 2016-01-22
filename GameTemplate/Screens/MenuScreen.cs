@@ -29,16 +29,16 @@ namespace GameTemplate.Screens
             ScreenControl.changeScreen(this, "GameScreen");
         }
 
-        private void instructionButton_Click(object sender, EventArgs e)
-        {
-            ScreenControl.changeScreen(this, "InstructionScreen");
-        }
-      
         private void optionsButton_Click(object sender, EventArgs e)
         {
             ScreenControl.changeScreen(this, "OptionScreen");
         }
 
+        private void instructionButton_Click(object sender, EventArgs e)
+        {
+            ScreenControl.changeScreen(this, "InstructionScreen");
+        }
+      
         private void exitButton_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -58,9 +58,9 @@ namespace GameTemplate.Screens
             gameTitle.Location = new Point(ScreenControl.controlWidth / 2 - gameTitle.Size.Width / 2, 50);
 
             playButton.Location = new Point(ScreenControl.controlWidth / 2 - gameTitle.Size.Width / 5, 180);
-            optionsButton.Location = new Point(ScreenControl.controlWidth / 2 - gameTitle.Size.Width / 5, 280);
+            optionsButton.Location = new Point(ScreenControl.controlWidth / 2 - gameTitle.Size.Width / 5, 380);
             exitButton.Location = new Point(ScreenControl.controlWidth / 2 - gameTitle.Size.Width / 5, 480);
-            instructionButton.Location = new Point(ScreenControl.controlWidth / 2 - gameTitle.Size.Width / 5, 380);
+            instructionButton.Location = new Point(ScreenControl.controlWidth / 2 - gameTitle.Size.Width / 5, 280);
 
 
 

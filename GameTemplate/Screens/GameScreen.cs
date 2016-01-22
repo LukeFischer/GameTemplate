@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Data;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
@@ -18,15 +19,14 @@ namespace GameTemplate.Screens
         public static Random randNum = new Random();
         int rand;
         int score = 0;
-
+        SoundPlayer player = new SoundPlayer(Properties.Resources.baseball_hit);
+        
         public GameScreen()
         {            
             InitializeComponent();
             g = this.CreateGraphics();
             ballX = 490;
-            ballY = 80;
-            
-
+            ballY = 80;           
         }
 
 
@@ -60,15 +60,18 @@ namespace GameTemplate.Screens
                 //gameTimer.Enabled = false;
                 if (ballY > 524 && ballY < 550)
                 {
+                    player.Play();
+
                     ballDirection = "foulleft";
-                    label1.Text = "Foul Ball";
+                    label1.Text = "Foul Ball";                  
                 }
 
 
                 if (ballY > 504 && ballY < 525)
                 {
-                    ballDirection = "leftbomb";
+                    player.Play();
 
+                    ballDirection = "leftbomb";                 
                     if (rand == 1)
                     {
                         label1.Text = "Homerun!";
@@ -109,6 +112,8 @@ namespace GameTemplate.Screens
 
                 if (ballY > 484 && ballY < 505)
                 {
+                    player.Play();
+
                     ballDirection = "leftcenter";
                     if (rand == 1)
                     {
@@ -150,6 +155,8 @@ namespace GameTemplate.Screens
 
                 if (ballY > 474 && ballY < 485)
                 {
+                    player.Play();
+
                     ballDirection = "deadcenter";
                     if (rand == 1)
                     {
@@ -191,6 +198,8 @@ namespace GameTemplate.Screens
 
                 if (ballY > 459 && ballY < 475)
                 {
+                    player.Play();
+
                     ballDirection = "rightcenter";
                     if (rand == 1)
                     {
@@ -232,8 +241,9 @@ namespace GameTemplate.Screens
 
                 if (ballY > 439 && ballY < 460)
                 {
-                    ballDirection = "rightbomb";
+                    player.Play();
 
+                    ballDirection = "rightbomb";
                     if (rand == 1)
                     {
                         label1.Text = "Homerun!";
@@ -273,6 +283,8 @@ namespace GameTemplate.Screens
                 }
                 if (ballY > 410 && ballY < 440)
                 {
+                    player.Play();
+
                     ballDirection = "foulright";
                     label1.Text = "Foul Ball";
                 }
