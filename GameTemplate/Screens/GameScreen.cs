@@ -17,7 +17,7 @@ namespace GameTemplate.Screens
         Graphics g;
         public static Random randNum = new Random();
         int rand;
-        int score;
+        int score = 0;
 
         public GameScreen()
         {            
@@ -25,7 +25,7 @@ namespace GameTemplate.Screens
             g = this.CreateGraphics();
             ballX = 490;
             ballY = 80;
-            score = 0;
+            
 
         }
 
@@ -289,19 +289,11 @@ namespace GameTemplate.Screens
  
         private void gameTimer_Tick(object sender, EventArgs e)
         {
-            //label1.Visible = true;
-            //label1.Text = "3";
-            //Thread.Sleep(100);
-            //Refresh();
-            //label1.Text = "2";
-            //Thread.Sleep(100);
-            //Refresh();
-            //label1.Text = "1";
-            //Thread.Sleep(100);
-            //Refresh();
+            
+           
             if (ballDirection == "down")
             {
-                ballY += 50;
+                ballY += 20;
             }
             else if (ballDirection == "leftcenter")
             {
@@ -340,20 +332,22 @@ namespace GameTemplate.Screens
 
             //check to see if ball has gone off top of screen or into catchers mit. If it has set ball back to start 
             //position and direction to down
+
             if (ballY < 0)
             {
                 ballDirection = "down";
                 ballX = 490;
                 ballY = 80;
+                score++;         
+                label2.Text = score.ToString();
 
             }
-            if (ballY > 550)
+            if (ballY > 550) 
             {
                 ballDirection = "down";
                 ballX = 490;
                 ballY = 80;
                 label1.Text = "Out";
-                //label2.Text = score;
 
             }
             //refresh the screen, which causes the GameScreen_Paint method to run
