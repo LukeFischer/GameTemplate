@@ -18,6 +18,7 @@ namespace GameTemplate.Screens
         public static Random randNum = new Random();
         int rand;
         int score = 0;
+        int outy = 0;
 
         public GameScreen()
         {            
@@ -348,6 +349,8 @@ namespace GameTemplate.Screens
                 ballX = 490;
                 ballY = 80;
                 label1.Text = "Out";
+                outy++;
+                label3.Text = outy.ToString();
 
             }
             //refresh the screen, which causes the GameScreen_Paint method to run
