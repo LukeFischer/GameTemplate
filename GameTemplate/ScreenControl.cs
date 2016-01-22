@@ -10,10 +10,7 @@ using GameTemplate.Screens;
 namespace GameTemplate
 {
     class ScreenControl
-    {
-        // high score values
-        public static List<int> highScores = new List<int>();
-
+    {       
         // screen and user control values
         public static int controlWidth = 1000;
         public static int controlHeight = 600;
@@ -64,10 +61,7 @@ namespace GameTemplate
                     ns = new MenuScreen();
                     break;
                 case "OptionScreen":
-                    ns = new OptionScreen();
-                    break;
-                case "ScoreScreen":
-                    ns = new ScoreScreen();
+                    ns = new OptionScreen();                   
                     break;
 
             }

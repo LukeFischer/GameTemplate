@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuScreen));
             this.exitButton = new System.Windows.Forms.Button();
             this.optionsButton = new System.Windows.Forms.Button();
-            this.scoresButton = new System.Windows.Forms.Button();
             this.playButton = new System.Windows.Forms.Button();
             this.gameTitle = new System.Windows.Forms.Label();
             this.instructionButton = new System.Windows.Forms.Button();
@@ -67,22 +66,6 @@
             this.optionsButton.Text = "Practice";
             this.optionsButton.UseVisualStyleBackColor = false;
             this.optionsButton.Click += new System.EventHandler(this.optionsButton_Click);
-            // 
-            // scoresButton
-            // 
-            this.scoresButton.BackColor = System.Drawing.Color.White;
-            this.scoresButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.scoresButton.Font = new System.Drawing.Font("Bell Gothic Std", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.scoresButton.ForeColor = System.Drawing.Color.Navy;
-            this.scoresButton.Location = new System.Drawing.Point(106, 169);
-            this.scoresButton.Margin = new System.Windows.Forms.Padding(2);
-            this.scoresButton.Name = "scoresButton";
-            this.scoresButton.Size = new System.Drawing.Size(120, 39);
-            this.scoresButton.TabIndex = 8;
-            this.scoresButton.Tag = "ScoreScreen";
-            this.scoresButton.Text = "High Scores";
-            this.scoresButton.UseVisualStyleBackColor = false;
-            this.scoresButton.Click += new System.EventHandler(this.scoresButton_Click);
             // 
             // playButton
             // 
@@ -138,7 +121,6 @@
             this.Controls.Add(this.instructionButton);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.optionsButton);
-            this.Controls.Add(this.scoresButton);
             this.Controls.Add(this.playButton);
             this.Controls.Add(this.gameTitle);
             this.Margin = new System.Windows.Forms.Padding(2);
@@ -153,7 +135,6 @@
 
         private System.Windows.Forms.Button exitButton;
         private System.Windows.Forms.Button optionsButton;
-        private System.Windows.Forms.Button scoresButton;
         private System.Windows.Forms.Button playButton;
         private System.Windows.Forms.Label gameTitle;
         private System.Windows.Forms.Button instructionButton;

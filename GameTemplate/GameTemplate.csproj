@@ -76,12 +76,6 @@
     <Compile Include="Screens\OptionScreen.Designer.cs">
       <DependentUpon>OptionScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="Screens\ScoreScreen.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Screens\ScoreScreen.Designer.cs">
-      <DependentUpon>ScoreScreen.cs</DependentUpon>
-    </Compile>
     <Compile Include="Screens\MenuScreen.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -112,9 +106,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\OptionScreen.resx">
       <DependentUpon>OptionScreen.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Screens\ScoreScreen.resx">
-      <DependentUpon>ScoreScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\MenuScreen.resx">
       <DependentUpon>MenuScreen.cs</DependentUpon>
