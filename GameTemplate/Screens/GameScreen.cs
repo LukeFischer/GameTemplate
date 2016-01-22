@@ -339,10 +339,10 @@ namespace GameTemplate.Screens
                 ballDirection = "down";
                 ballX = 490;
                 ballY = 80;
-                score++;         
+                score++;
                 label2.Text = score.ToString();
-
             }
+
             if (ballY > 550) 
             {
                 ballDirection = "down";
