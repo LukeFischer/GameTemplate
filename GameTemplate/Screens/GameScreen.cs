@@ -386,7 +386,8 @@ namespace GameTemplate.Screens
         private void GameScreen_Paint(object sender, PaintEventArgs e)
         {
             e.Graphics.FillEllipse(ball, ballX, ballY, 15, 15);
-           // e.Graphics.FillEllipse(bat, 500, 500, 25, 50);
+            e.Graphics.FillEllipse(bat, 610, 400, 20, 50);
+            e.Graphics.FillRectangle(bat, 610, 450, 10, 20);
         }
 
     }
