@@ -59,14 +59,14 @@ namespace GameTemplate.Screens
             if (e.KeyCode == Keys.Space)
             {
                 //gameTimer.Enabled = false;
-                if (ballY > 524 && ballY < 550)
+                if (ballY > 509 && ballY < 530)
                 {
                     ballDirection = "foulleft";
                     label1.Text = "Foul Ball";
                 }
 
 
-                if (ballY > 504 && ballY < 525)
+                if (ballY > 499 && ballY < 510)
                 {
                     ballDirection = "leftbomb";
 
@@ -108,7 +108,7 @@ namespace GameTemplate.Screens
                     }
                 }
 
-                if (ballY > 484 && ballY < 505)
+                if (ballY > 479 && ballY < 500)
                 {
                     ballDirection = "leftcenter";
                     if (rand == 1)
@@ -149,7 +149,7 @@ namespace GameTemplate.Screens
                     }
                 }
 
-                if (ballY > 474 && ballY < 485)
+                if (ballY > 469 && ballY < 480)
                 {
                     ballDirection = "deadcenter";
                     if (rand == 1)
@@ -190,7 +190,7 @@ namespace GameTemplate.Screens
                     }
                 }
 
-                if (ballY > 459 && ballY < 475)
+                if (ballY > 459 && ballY < 470)
                 {
                     ballDirection = "rightcenter";
                     if (rand == 1)
