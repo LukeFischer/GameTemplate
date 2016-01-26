@@ -61,11 +61,12 @@ namespace GameTemplate.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream baseball_hit {
+        internal static System.Drawing.Bitmap field {
             get {
-                return ResourceManager.GetStream("baseball_hit", resourceCulture);
+                object obj = ResourceManager.GetObject("field", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
     }

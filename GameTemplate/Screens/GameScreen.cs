@@ -4,7 +4,6 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Data;
 using System.Linq;
-using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
@@ -19,14 +18,16 @@ namespace GameTemplate.Screens
         public static Random randNum = new Random();
         int rand;
         int score = 0;
-        SoundPlayer player = new SoundPlayer(Properties.Resources.baseball_hit);
-        
+        int outy = 0;
+
         public GameScreen()
         {            
             InitializeComponent();
             g = this.CreateGraphics();
             ballX = 490;
-            ballY = 80;           
+            ballY = 80;
+            
+
         }
 
 
@@ -58,20 +59,17 @@ namespace GameTemplate.Screens
             if (e.KeyCode == Keys.Space)
             {
                 //gameTimer.Enabled = false;
-                if (ballY > 524 && ballY < 550)
+                if (ballY > 509 && ballY < 530)
                 {
-                    player.Play();
-
                     ballDirection = "foulleft";
-                    label1.Text = "Foul Ball";                  
+                    label1.Text = "Foul Ball";
                 }
 
 
-                if (ballY > 504 && ballY < 525)
+                if (ballY > 499 && ballY < 510)
                 {
-                    player.Play();
+                    ballDirection = "leftbomb";
 
-                    ballDirection = "leftbomb";                 
                     if (rand == 1)
                     {
                         label1.Text = "Homerun!";
@@ -110,10 +108,8 @@ namespace GameTemplate.Screens
                     }
                 }
 
-                if (ballY > 484 && ballY < 505)
+                if (ballY > 479 && ballY < 500)
                 {
-                    player.Play();
-
                     ballDirection = "leftcenter";
                     if (rand == 1)
                     {
@@ -153,10 +149,8 @@ namespace GameTemplate.Screens
                     }
                 }
 
-                if (ballY > 474 && ballY < 485)
+                if (ballY > 469 && ballY < 480)
                 {
-                    player.Play();
-
                     ballDirection = "deadcenter";
                     if (rand == 1)
                     {
@@ -196,10 +190,8 @@ namespace GameTemplate.Screens
                     }
                 }
 
-                if (ballY > 459 && ballY < 475)
+                if (ballY > 459 && ballY < 470)
                 {
-                    player.Play();
-
                     ballDirection = "rightcenter";
                     if (rand == 1)
                     {
@@ -241,9 +233,8 @@ namespace GameTemplate.Screens
 
                 if (ballY > 439 && ballY < 460)
                 {
-                    player.Play();
-
                     ballDirection = "rightbomb";
+
                     if (rand == 1)
                     {
                         label1.Text = "Homerun!";
@@ -283,8 +274,6 @@ namespace GameTemplate.Screens
                 }
                 if (ballY > 410 && ballY < 440)
                 {
-                    player.Play();
-
                     ballDirection = "foulright";
                     label1.Text = "Foul Ball";
                 }
@@ -350,16 +339,18 @@ namespace GameTemplate.Screens
                 ballDirection = "down";
                 ballX = 490;
                 ballY = 80;
-                score++;         
+                score++;
                 label2.Text = score.ToString();
-
             }
+
             if (ballY > 550) 
             {
                 ballDirection = "down";
                 ballX = 490;
                 ballY = 80;
                 label1.Text = "Out";
+                outy++;
+                label3.Text = outy.ToString();
 
             }
             //refresh the screen, which causes the GameScreen_Paint method to run
@@ -395,7 +386,8 @@ namespace GameTemplate.Screens
         private void GameScreen_Paint(object sender, PaintEventArgs e)
         {
             e.Graphics.FillEllipse(ball, ballX, ballY, 15, 15);
-           // e.Graphics.FillEllipse(bat, 500, 500, 25, 50);
+            e.Graphics.FillEllipse(bat, 610, 400, 20, 50);
+            e.Graphics.FillRectangle(bat, 610, 450, 10, 20);
         }
 
     }
