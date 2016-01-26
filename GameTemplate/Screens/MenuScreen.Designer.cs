@@ -63,7 +63,7 @@
             this.optionsButton.Size = new System.Drawing.Size(120, 39);
             this.optionsButton.TabIndex = 9;
             this.optionsButton.Tag = "OptionsScreen";
-            this.optionsButton.Text = "Practice";
+            this.optionsButton.Text = "Titles";
             this.optionsButton.UseVisualStyleBackColor = false;
             this.optionsButton.Click += new System.EventHandler(this.optionsButton_Click);
             // 

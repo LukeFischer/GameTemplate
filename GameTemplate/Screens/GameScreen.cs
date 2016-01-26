@@ -5,6 +5,7 @@ using System.Drawing;
 using System.Data;
 using System.Linq;
 using System.Text;
+using System.Media;
 using System.Threading.Tasks;
 using System.Threading;
 using System.Windows.Forms;  
@@ -12,13 +13,19 @@ using GameTemplate.Dialogs;
 
 namespace GameTemplate.Screens
 {
+    //Evan Moorehead, Brad Kraemer, Luke Fischer
+    //ICS3U
+    //Home Run Derby
     public partial class GameScreen : UserControl
     {
         Graphics g;
+        //Random number for homerun words
         public static Random randNum = new Random();
         int rand;
+        //variables
         int score = 0;
         int outy = 0;
+        SoundPlayer player = new SoundPlayer(Properties.Resources.hit);
 
         public GameScreen()
         {            
@@ -26,25 +33,18 @@ namespace GameTemplate.Screens
             g = this.CreateGraphics();
             ballX = 490;
             ballY = 80;
-            
-
         }
-
-
-            #region required global values - DO NOT CHANGE
-
-
-            //player1 button control keys - DO NOT CHANGE
-            Boolean spaceDown;
-
-        #endregion
 
         //TODO - Place game global variables here
         int ballX, ballY;
-        string ballDirection = "down";
+        string ballDirection = "down"; 
 
         SolidBrush ball = new SolidBrush(Color.White);
         SolidBrush bat = new SolidBrush(Color.SaddleBrown);
+
+      
+        bool swingBat = false;
+        int swing = 0;
         //----------------------------------------
 
         // PreviewKeyDown required for UserControl instead of KeyDown as on a form
@@ -52,22 +52,20 @@ namespace GameTemplate.Screens
         {
             rand = randNum.Next(1, 10);
 
+   
+
             if (e.KeyCode == Keys.Escape)
             {
                 pauseGame();
             }
+           
             if (e.KeyCode == Keys.Space)
             {
-                //gameTimer.Enabled = false;
-                if (ballY > 509 && ballY < 530)
-                {
-                    ballDirection = "foulleft";
-                    label1.Text = "Foul Ball";
-                }
-
-
+                swingBat = true;
+               
                 if (ballY > 499 && ballY < 510)
                 {
+                    player.Play();
                     ballDirection = "leftbomb";
 
                     if (rand == 1)
@@ -110,6 +108,7 @@ namespace GameTemplate.Screens
 
                 if (ballY > 479 && ballY < 500)
                 {
+                    player.Play();
                     ballDirection = "leftcenter";
                     if (rand == 1)
                     {
@@ -151,6 +150,7 @@ namespace GameTemplate.Screens
 
                 if (ballY > 469 && ballY < 480)
                 {
+                    player.Play();
                     ballDirection = "deadcenter";
                     if (rand == 1)
                     {
@@ -192,6 +192,7 @@ namespace GameTemplate.Screens
 
                 if (ballY > 459 && ballY < 470)
                 {
+                    player.Play();
                     ballDirection = "rightcenter";
                     if (rand == 1)
                     {
@@ -233,6 +234,7 @@ namespace GameTemplate.Screens
 
                 if (ballY > 439 && ballY < 460)
                 {
+                    player.Play();
                     ballDirection = "rightbomb";
 
                     if (rand == 1)
@@ -271,15 +273,8 @@ namespace GameTemplate.Screens
                     {
                         label1.Text = "What a Poke!";
                     }
-                }
-                if (ballY > 410 && ballY < 440)
-                {
-                    ballDirection = "foulright";
-                    label1.Text = "Foul Ball";
-                }
-
+                }               
             }
-
         }
 
         /// <summary>
@@ -290,11 +285,24 @@ namespace GameTemplate.Screens
  
         private void gameTimer_Tick(object sender, EventArgs e)
         {
-            
-           
+            if (swingBat == true)
+            {
+                swing++;
+            }
+
+            if (outy == 5)
+            {
+                gameTimer.Enabled = false;
+                label1.Text = "Game Over";
+            }
+
             if (ballDirection == "down")
             {
                 ballY += 20;
+            }
+            else if (ballDirection == "windup")
+            {
+                ballY -= 5;
             }
             else if (ballDirection == "leftcenter")
             {
@@ -333,29 +341,31 @@ namespace GameTemplate.Screens
 
             //check to see if ball has gone off top of screen or into catchers mit. If it has set ball back to start 
             //position and direction to down
-
-            if (ballY < 0)
+            
+            if (ballY < -60)
             {
+                Thread.Sleep(500);            
                 ballDirection = "down";
                 ballX = 490;
                 ballY = 80;
                 score++;
-                label2.Text = score.ToString();
+                swing = 0;
             }
 
             if (ballY > 550) 
             {
+                Thread.Sleep(500);
                 ballDirection = "down";
                 ballX = 490;
                 ballY = 80;
                 label1.Text = "Out";
                 outy++;
-                label3.Text = outy.ToString();
-
+                swing = 0;
             }
+            
             //refresh the screen, which causes the GameScreen_Paint method to run
             Refresh();
-            //gameTimer.Enabled = false;
+            
         }
 
         /// <summary>
@@ -385,9 +395,70 @@ namespace GameTemplate.Screens
         /// <param name="e"></param>
         private void GameScreen_Paint(object sender, PaintEventArgs e)
         {
+            //score and outs text
+            Font subtitles = new Font("Arial", 25, FontStyle.Bold);
+            Font scores = new Font("Arial", 50, FontStyle.Bold);
+            SolidBrush drawBrush = new SolidBrush(Color.White);            e.Graphics.DrawString("Score", subtitles, drawBrush, 80, 460);
+            e.Graphics.DrawString("" + score, scores, drawBrush, 85, 510);
+            e.Graphics.DrawString("Outs", subtitles, drawBrush, 820, 460);
+            e.Graphics.DrawString("" + outy, scores, drawBrush, 830, 510);
+
+
+            //ball drawing
             e.Graphics.FillEllipse(ball, ballX, ballY, 15, 15);
-            e.Graphics.FillEllipse(bat, 610, 400, 20, 50);
-            e.Graphics.FillRectangle(bat, 610, 450, 10, 20);
+            //bat drawing
+
+            if (swing == 0)
+            {
+                e.Graphics.FillEllipse(bat, 610, 400, 20, 10);
+                e.Graphics.FillEllipse(bat, 610, 450, 20, 10);
+                e.Graphics.FillRectangle(bat, 610, 405, 20, 50);
+                e.Graphics.FillRectangle(bat, 615, 450, 10, 50);
+                e.Graphics.FillEllipse(bat, 610, 490, 20, 10);
+            }
+            else if (swing == 1)
+            {
+                e.Graphics.TranslateTransform(700, 0);
+                e.Graphics.RotateTransform(90);
+
+                e.Graphics.FillEllipse(bat, 460, 0, 20, 10);
+                e.Graphics.FillEllipse(bat, 460, 50, 20, 10);
+                e.Graphics.FillRectangle(bat, 460, 5, 20, 50);
+                e.Graphics.FillRectangle(bat, 465, 50, 10, 50);
+                e.Graphics.FillEllipse(bat, 460, 90, 20, 10);
+
+                e.Graphics.ResetTransform();
+            }
+            else if (swing == 2)
+            {
+                e.Graphics.TranslateTransform(1075, 570);
+                e.Graphics.RotateTransform(180);
+
+                e.Graphics.FillEllipse(bat, 460, 0, 20, 10);
+                e.Graphics.FillEllipse(bat, 460, 50, 20, 10);
+                e.Graphics.FillRectangle(bat, 460, 5, 20, 50);
+                e.Graphics.FillRectangle(bat, 465, 50, 10, 50);
+                e.Graphics.FillEllipse(bat, 460, 90, 20, 10);
+
+                e.Graphics.ResetTransform();
+            }
+            else if (swing > 3)
+            {
+                e.Graphics.TranslateTransform(490, 950);
+                e.Graphics.RotateTransform(270);
+
+                e.Graphics.FillEllipse(bat, 460, 0, 20, 10);
+                e.Graphics.FillEllipse(bat, 460, 50, 20, 10);
+                e.Graphics.FillRectangle(bat, 460, 5, 20, 50);
+                e.Graphics.FillRectangle(bat, 465, 50, 10, 50);
+                e.Graphics.FillEllipse(bat, 460, 90, 20, 10);
+
+                e.Graphics.ResetTransform();
+
+                swingBat = false;
+                swing = 0;
+            }
+
         }
 
     }
