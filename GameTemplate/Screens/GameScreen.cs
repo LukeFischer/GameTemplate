@@ -15,7 +15,7 @@ namespace GameTemplate.Screens
 {
     //Evan Moorehead, Brad Kraemer, Luke Fischer
     //ICS3U
-    //Home Run Derby
+    //Home Run Derby 
     public partial class GameScreen : UserControl
     {
         Graphics g;
