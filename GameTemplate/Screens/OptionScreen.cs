@@ -13,25 +13,19 @@ namespace GameTemplate.Screens
 {
     public partial class OptionScreen : UserControl
     {
+        Graphics g;
+
         public OptionScreen()
         {
             InitializeComponent();
-
-            ScreenControl.setComponentValues(this);
-            defaultOverride();
+            label1.Text = "100 Points = Legendary";
+            label2.Text = "50 Points = Pro";
+            label3.Text = "20 Points = Rookie";
         }
 
         private void exitButton_Click(object sender, EventArgs e)
         {
             ScreenControl.changeScreen(this, "MenuScreen");
-        }
-
-        /// <summary>
-        /// Change any control default values here
-        /// </summary>
-        public void defaultOverride()
-        {
-
         }
     }
 }
