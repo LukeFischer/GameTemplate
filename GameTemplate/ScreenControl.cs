@@ -11,6 +11,7 @@ namespace GameTemplate
 {
     class ScreenControl
     {       
+        //asdfsdf/
         // screen and user control values
         public static int controlWidth = 1000;
         public static int controlHeight = 600;
